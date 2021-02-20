@@ -1,0 +1,7 @@
+{
+  "name": "sama-stock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
