@@ -1,0 +1,3 @@
+# Sama-stock
+
+## Angular app
