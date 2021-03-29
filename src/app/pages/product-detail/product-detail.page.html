@@ -36,8 +36,14 @@
         <div class="ion-padding ion-margin-top">
           <ion-title class="ion-margin-bottom">Product images</ion-title>
           <div class="product-images">
-            <ion-img *ngFor="let image of product.productImages" src="{{ productImageUrl }}/{{ image.image }}"
-            alt="{{ product.name }}"></ion-img>
+            <ion-img-viewer *ngFor="let image of product.productImages"
+              title="{{ product.name }}"
+              text=""
+              scheme="auto"
+              src="{{ productImageUrl }}/{{ image.image }}">
+            </ion-img-viewer>
+            <!-- <ion-img *ngFor="let image of product.productImages" src="{{ productImageUrl }}/{{ image.image }}"
+            alt="{{ product.name }}"></ion-img> -->
           </div>
         </div>
       </ion-card-content>

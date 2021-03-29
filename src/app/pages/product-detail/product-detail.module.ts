@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProductDetailPageRoutingModule } from './product-detail-routing.module';
 
 import { ProductDetailPage } from './product-detail.page';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ProductDetailPage } from './product-detail.page';
     FormsModule,
     IonicModule,
     ProductDetailPageRoutingModule,
+    NgxIonicImageViewerModule
   ],
   declarations: [ProductDetailPage]
 })
