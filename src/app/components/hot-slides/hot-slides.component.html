@@ -1,0 +1,26 @@
+<ion-content>
+  <ng-container *ngIf="featuredProducts; else elseTemplate">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let product of featuredProducts">
+        <div class="slide">
+          <ion-img src="{{ thumbnailUrl }}/{{ product.thumbnail }}" alt="{{ product.name }}"></ion-img>
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <ion-chip outline color="primary" style="margin-bottom: 10%;">
+            <ion-icon name="pricetags-outline"></ion-icon>
+            <ion-label>{{ product.price }} FCFA</ion-label>
+          </ion-chip>
+          <div class="ion-activatable ripple-parent">
+            <ion-button expand="block" [routerLink]="['/product-detail/', product.id]">Decouvrir</ion-button>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="spin">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>
+  </ng-template>
+</ion-content>

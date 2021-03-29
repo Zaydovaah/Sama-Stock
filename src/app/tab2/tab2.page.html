@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+<ion-menu side="start" content-id="main-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar translucent>
+      <ion-title>Categories</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar translucent>
+        <ion-title>Categories</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+      <ion-item *ngFor="let category of categories">
+        <ion-icon name="filter-outline" slot="start"></ion-icon>
+        <ion-label>{{ category.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+<div class="ion-page" id="main-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Explore</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+
+    <app-products-list></app-products-list>
+
+  </ion-content>

@@ -1,0 +1,29 @@
+.spin{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-spinner {
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #222;
+}
+
+ion-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-images {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.product-images ion-img {
+  width: 150px;
+  height: 150px;
+}

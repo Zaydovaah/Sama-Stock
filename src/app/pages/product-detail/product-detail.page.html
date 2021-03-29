@@ -1,0 +1,52 @@
+<ion-header translucent class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back-outline" defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ng-container *ngIf="product; else elseTemplate">
+    <ion-header translucent class="ion-no-border" collapse="condense">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button text="" icon="arrow-back-outline" defaultHref="tabs"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Product details</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-card>
+      <img src="{{ thumbnailUrl }}/{{ product.thumbnail }}" alt="{{ product.name }}" />
+      <ion-card-header>
+        <ion-card-subtitle>{{ product.category.name }}</ion-card-subtitle>
+        <ion-card-title>
+          {{ product.name }}
+          <ion-chip outline color="primary">
+            <ion-icon name="pricetags-outline"></ion-icon>
+            <ion-label>{{ product.price }} FCFA</ion-label>
+          </ion-chip>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ product.description }}
+
+        <div class="ion-padding ion-margin-top">
+          <ion-title class="ion-margin-bottom">Product images</ion-title>
+          <div class="product-images">
+            <ion-img *ngFor="let image of product.productImages" src="{{ productImageUrl }}/{{ image.image }}"
+            alt="{{ product.name }}"></ion-img>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="spin">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>
+  </ng-template>
+
+</ion-content>

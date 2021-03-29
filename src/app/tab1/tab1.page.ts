@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../models/product';
 import { AuthService } from '../services/auth.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-tab1',
@@ -18,5 +20,6 @@ export class Tab1Page {
     await this.authService.logout();
     this.router.navigateByUrl('/', { replaceUrl: true });
   }
+
 
 }

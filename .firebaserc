@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sama-stock": {
+      "hosting": {
+        "app": [
+          "sama-stock"
+        ]
+      }
+    }
+  }
+}

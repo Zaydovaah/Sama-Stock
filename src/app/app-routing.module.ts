@@ -7,13 +7,11 @@ import { IntroGuard } from './guards/intro.guard';
 const routes: Routes = [
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    canLoad: [AuthGuard]
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), canLoad: [IntroGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
-    canLoad: [IntroGuard]
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule), canLoad: [IntroGuard]
   },
   {
     path: 'intro',
@@ -21,13 +19,18 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/tabs',
     pathMatch: 'full'
   },
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'product-detail/:id',
+    loadChildren: () => import('./pages/product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
   }
+
 ];
 @NgModule({
   imports: [
