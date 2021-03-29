@@ -2,6 +2,8 @@ import { environment } from './../../../environments/environment';
 import { Product } from './../../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products-list',
@@ -11,8 +13,8 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsListComponent implements OnInit {
 
   products: Product[];
-
   thumbnailUrl = `${environment.baseUrl}/uploads/images/thumbnails`;
+  filterTerm: string;
 
   constructor(
     private productsService: ProductsService
@@ -27,12 +29,6 @@ export class ProductsListComponent implements OnInit {
       console.log(res);
       this.products = res['hydra:member'];
     })
-  }
-
-  filterProducts(searchTerm) {
-    return this.products.filter(product => {
-      return product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
-    });
   }
 
 }
